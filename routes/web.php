@@ -18,55 +18,35 @@ Route::get('/', function () {
 });
 
 //home page
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/home', 'HomesController@show');
 
 //register page
-Route::get('/register', function () {
-    return view('register');
-});
+Route::get('/register', 'RegistersController@show');
 
 //Register validation
-Route::get('/register/ok', function () {
-    return view('welcome');
-});
+Route::get('/register/ok','RegistersController@show');
 
 //login page
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/login', 'LoginsContoller@show');
 
 //loggedin user page
 Route::get('/users/{id}', 'UsersController@show');
 
 //contact Page
-Route::get('contact', function () {
-    return view('contact');
-});
+Route::get('/contact', 'ContactsController@show');
 
 //FAQ
-Route::get('/faq', function () {
-    return view('faq');
-});
+Route::get('/faq', 'FaqsController@show');
 
 //about
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/about', 'AboutsController@show');
 
 //Admin board
-Route::get('/admin', function () {
-    return view('admin');
-});
+Route::get('/admin', 'AdminsController@show');
 
 //Admin board after search
-Route::get('/admin/search', function () {
-    return view('admin');
-});
+Route::get('/admin/search', 'AdminsController@show');
 
 
 //Articles
-Route::get('/article', function () {
-    return view('article');
-});
+Route::get('/articles', [\App\Http\Controllers\ArticlesController::class, 'show']);
