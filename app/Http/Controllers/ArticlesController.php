@@ -8,8 +8,11 @@ class ArticlesController extends Controller
 {
     public function show()
     {
+       $article = \DB::table('articles')->where('id',1)->first();
 
-        return view('article');
+
+
+        return view('article',[ 'articles' => $article]);
     }
 
 }
