@@ -9,7 +9,7 @@ class Article extends Model
 {
     use HasFactory;
 
-    protected $fillable =['titel', 'description','img','viewable'];
+ protected $fillable =['titel', 'description','img','viewable'];
     //protected $garded = []; laravel don't protect for multiple creat
     public function view(){
         $this->viewable =true;
