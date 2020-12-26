@@ -6,9 +6,9 @@
 
 @include('partials.navbarcontent')
 
-<div class="container">
+<main class="container">
     @yield('content')
-</div>
+</main>
 @include('partials.scriptcontent')
 @include('partials.footercontent')
 

@@ -15,12 +15,16 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->dateTimeTz('datum')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->string('message');
             $table->string('img')->nullable();
             $table->boolean('viewable')->default(false);
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')->onDelete('cascade');
         });
     }
 

@@ -68,3 +68,7 @@ Route::get('/articles/{articleId}/edit', [\App\Http\Controllers\ArticlesControll
 
 //Article Update
 Route::put('articles/{articleId}', [\App\Http\Controllers\ArticlesController::class, 'update']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
