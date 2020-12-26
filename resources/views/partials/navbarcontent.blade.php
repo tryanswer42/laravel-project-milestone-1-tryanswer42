@@ -19,22 +19,28 @@
                 </li>
 
                 <li class="nav-item dropdown nav-item">
-                    <a class="nav-link dropdown-toggle hoverable" href="#" accesskey="3" id="navbarDropdown"
+                    <a class="nav-link dropdown-toggle hoverable" href="#" accesskey="6" id="navbarDropdown"
                        role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @guest
                         SignIn/Register
+                        @else
+                       Profil
+                        @endguest
+
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @guest
                         @if (Route::has('login'))
-                        <a class="dropdown-item hoverable" href="#">Login</a>
+                        <a class="dropdown-item hoverable" href="{{URL::to('login')}}">Login</a>
                         @endif
 
                         @if (Route::has('register'))
-                        <a class="dropdown-item hoverable" href="#">Register</a>
+                        <a class="dropdown-item hoverable" href="{{URL::to('register')}}">Register</a>
                         @endif
+
                         @else
-                        <a class="dropdown-item hoverable" href="#">{{ Auth::user()->name }}</a>
+                        <a class="dropdown-item hoverable" href="#">Hello {{ Auth::user()->name }}</a>
                         <a class="dropdown-item hoverable" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

@@ -17,17 +17,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//home page
-Route::get('/home', 'HomesController@show');
+Auth::routes();
 
-//register page
-Route::get('/register', 'RegistersController@show');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
 
 //Register validation
 Route::get('/register/ok','RegistersController@show');
 
-//login page
-Route::get('/login', 'LoginsContoller@show');
+
 
 //loggedin user page
 Route::get('/users/{id}', 'UsersController@show');
@@ -69,6 +70,3 @@ Route::get('/articles/{articleId}/edit', [\App\Http\Controllers\ArticlesControll
 //Article Update
 Route::put('articles/{articleId}', [\App\Http\Controllers\ArticlesController::class, 'update']);
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
