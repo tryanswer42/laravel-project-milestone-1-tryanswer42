@@ -8,13 +8,13 @@
                 <li class="{{ Request::path() === '/' ? 'active' : ''}}"><a href="/" accesskey="1" title=""
                                                                             class="hoverable nav-item">Petasi Ordo</a>
                 </li>
-                <li class="{{ Request::is('articles*') ? 'active' : ''}}"><a href="/articles" accesskey="2" title=""
+                <li class="{{ Request::is('articles*') ? 'active' : ''}}"><a href="{{URL::to('articles')}}" accesskey="2" title=""
                                                                              class="hoverable nav-item">News</a></li>
                 <li class="{{ Request::is('agenda*') ? 'active' : ''}}"><a href="#" accesskey="3" title=""
                                                                            class="hoverable nav-item">Agenda</a></li>
-                <li class="{{ Request::is('about*') ? 'active' : ''}}"><a href="/about" accesskey="4" title=""
+                <li class="{{ Request::is('about*') ? 'active' : ''}}"><a href="{{URL::to('about')}}" accesskey="4" title=""
                                                                           class="hoverable nav-item">About Us</a></li>
-                <li class="{{ Request::is('contact*') ? 'active' : ''}}"><a href="#" accesskey="5" title=""
+                <li class="{{ Request::is('contact*') ? 'active' : ''}}"><a href="{{URL::to('contact')}}" accesskey="5" title=""
                                                                             class="hoverable nav-item">Contact Us</a>
                 </li>
 
@@ -40,7 +40,7 @@
                         @endif
 
                         @else
-                        <a class="dropdown-item hoverable" href="#">Hello {{ Auth::user()->name }}</a>
+                        <a class="dropdown-item hoverable" href="{{URL::to('user')}}">Hello {{ Auth::user()->name }}</a>
                         <a class="dropdown-item hoverable" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

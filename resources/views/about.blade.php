@@ -29,12 +29,14 @@
 
 <p> https://stackoverflow.com/questions/51062030/updating-user-data-in-default-laravel-application/51086538</p>
 
-TO BE DONE :
+<h1>TO BE DONE :</h1>
 
-Setting an agenda
-setting Faq with specific layout
-Setting Admin controle Board
+<p>Setting an agenda</p>
+<p>setting Faq with specific layout</p>
+<p>Setting Admin controle Board</p>
+<p>Setting DonnationPage</p>
+<p>Configuring Auhaurisation and Roles</p>
 
-Testing links
-Testing vulnerabilities
+<p>Testing links</p>
+<p>Testing vulnerabilities</p>
 @endsection

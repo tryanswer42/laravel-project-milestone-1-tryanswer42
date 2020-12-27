@@ -36,7 +36,7 @@ Route::put('/user', [\App\Http\Controllers\UsersController::class, 'update']);
 
 
 
-//contact Page
+//agenda Page
 Route::get('/agenda', 'AgendasController@show');
 
 //contact Page
@@ -50,11 +50,15 @@ Route::get('/faq', 'FaqsController@show');
 //about
 Route::get('/about',[\App\Http\Controllers\AboutController::class, 'show']);
 
+
+
 //Admin board
 Route::get('/admin', 'AdminsController@show');
 
 //Admin board after search
 Route::get('/admin/search', 'AdminsController@show');
+
+
 
 
 //Articles all

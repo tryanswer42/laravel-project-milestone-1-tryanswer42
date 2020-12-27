@@ -1,7 +1,7 @@
 @include('partials.headcontent')
-<div id="banner-wrapper">
+
 @include('partials.bannercontent')
-</div>
+
 <body>
 
 @include('partials.navbarcontent')
