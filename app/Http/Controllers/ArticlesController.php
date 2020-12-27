@@ -69,8 +69,8 @@ class ArticlesController extends Controller
 
     public function edit($articleId)
     {
-
-        return view('articles.edit', ['article' => Article::findOrFail($articleId)]);
+        $tags = Tag::all();
+        return view('articles.edit', ['article' => Article::findOrFail($articleId),'tags' => $tags]);
     }
 
     public function update($articleId)
@@ -81,6 +81,7 @@ class ArticlesController extends Controller
         $article = Article::findOrFail($articleId);
         $article->titel = request('titel');
         $article->description = request('description');
+        $article->img = request('img');
         $article->viewable = request('viewable');
         $article->save();
 

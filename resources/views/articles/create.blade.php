@@ -56,15 +56,15 @@
             </div>
 
             <div class=" field">
-                <label for="description" class="label">Tags</label>
+                <label for="tags[]" class="label">Tags</label>
                 <div class="control">
                     <select name="tags[]" multiple id="">
                         @foreach ($tags as $tag)
                         <option value="{{$tag->id}}">{{$tag->name}}</option>
                         @endforeach
                     </select>
-                    @error ('description')
-                    <p class="help text-danger">{{$errors->first('description')}}</p>
+                    @error ('tags[]')
+                    <p class="help text-danger">{{$errors->first('tags[]')}}</p>
                     @enderror
 
                 </div>

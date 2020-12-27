@@ -9,55 +9,85 @@
         <div class="title">
             <h2> Edit Article:</h2>
             <span class="byline">{{$article->titel}}</span>
-
         </div>
+
 
         <form method="post" action="/user">
             @csrf
             @method('put')
 
             <div class="field">
+
                 <label for="titel" class="label">Titel</label>
-            </div>
-            <div class="control">
-                <input type="text" class="input" id="titel" value="{{$article->titel}}">
+
+                <div class="control">
+                    <input type="text"
+                           class="input @error('titel') border-danger @enderror"
+                           name="titel"
+                           id="titel"
+                           value="{{ $article->titel }}">
+
+                    @error ('titel')
+                    <p class="help text-danger">{{$errors->first('titel')}}</p>
+                    @enderror
+
+                </div>
             </div>
 
-
-            <div class="field">
+            <div class=" field">
                 <label for="description" class="label">Description</label>
+                <div class="control">
+                    <textarea name="description" cols="58"
+                              id="description"
+                              class="textarea @error('description') border-danger @enderror"
+                              value="{{ old('description') }}">{{$article->description}}</textarea>
+
+                    @error ('description')
+                    <p class="help text-danger">{{$errors->first('description')}}</p>
+                    @enderror
+
+                </div>
             </div>
-            <div class="control">
-                <textarea name="description" cols="58" id="description" class="textarea">{{$article->description}}</textarea>
-            </div>
+
 
             <div class="field">
                 <label for="img" class="label">Image Url</label>
+
+                <div class="control">
+                    <input type="url" class="input" id="img" value="{{$article->img}}">
+                </div>
             </div>
-            <div class="control">
-                <input type="text" class="input" id="img" value="{{$article->img}}">
+
+            <div class=" field">
+                <label for="tags[]" class="label">Tags</label>
+                <div class="control">
+                    <select name="tags[]" multiple id="">
+                        @foreach ($tags as $tag)
+                        <option value="{{$tag->id}}">{{$tag->name}}</option>
+                        @endforeach
+                    </select>
+                    @error ('tags[]')
+                    <p class="help text-danger">{{$errors->first('tags[]')}}</p>
+                    @enderror
+
+                </div>
             </div>
 
             <div class="field">
                 <label for="viewable" class="label">viewable?</label>
             </div>
             <div class="control">
-                <input type="checkbox" name="viewable"  value="1" {{($article->viewable) ? 'checked="checked"' : ''}}/>
+                <input type="checkbox" id="viewable" name="viewable" value="1" {{($article->viewable) ?
+                'checked="checked"' : ''}}/>
             </div>
 
-            <div class="field is-grouped"></div>
-            <dic class="control">
+            <div class="field is-grouped">
+            <div class="control">
                 <button class="button is-link" type="submit">Update</button>
-            </dic>
+            </div></div>
         </form>
 
-        @if($errors)
-        @foreach($errors->all() as $error)
-        <div class="alert alert-danger" role="alert">
-            {{ $error }}
-        </div>
-        @endforeach
-        @endif
+
     </div>
 </div>
 

@@ -35,19 +35,14 @@ Route::put('/user', [\App\Http\Controllers\UsersController::class, 'update']);
 
 
 
-//Register validation
-Route::get('/register/ok','RegistersController@show');
-
-
-
-//loggedin user page
-Route::get('/users/{id}', 'UsersController@show');
 
 //contact Page
 Route::get('/agenda', 'AgendasController@show');
 
 //contact Page
-Route::get('/contact', 'ContactsController@show');
+Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'show']);
+Route::post('/contact', [\App\Http\Controllers\ContactController::class, 'store']);
+
 
 //FAQ
 Route::get('/faq', 'FaqsController@show');

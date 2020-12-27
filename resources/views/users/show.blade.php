@@ -8,13 +8,7 @@
                 <div class="card-header">Profile</div>
                 <div class="card-body">
 
-                    @if($errors)
-                    @foreach($errors->all() as $error)
-                    <div class="alert alert-danger" role="alert">
-                        {{ $error }}
-                    </div>
-                    @endforeach
-                    @endif
+
                     <form method="post" action="/user">
                         @csrf
                         @method('put')
