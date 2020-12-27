@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactUs;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -46,11 +47,13 @@ class ContactController extends Controller
         ]));
         $contact->save();
 
-        Mail::raw('Contact message to Petasi Ordo Recieved :  '.'\n\n\n'.request('message').'\n\n\nThe Message will be treated as soon as possible', function ($message) {
-            $message->to(request('email'))
-                ->from('Admin@PetasiOrdo.com')
-                ->subject('Contact message to Petasi Ordo Recieved');
-        });
+//        Mail::raw('Contact message to Petasi Ordo Recieved :  '.'\n\n\n'.request('message').'\n\n\nThe Message will be treated as soon as possible', function ($message) {
+//            $message->to(request('email'))
+//                ->from('Admin@PetasiOrdo.com')
+//                ->subject('Contact message to Petasi Ordo Recieved');
+//        });
+        Mail::to(request('email'))->send(new ContactUs($contact));
+
         return redirect('/contact')->with('note','Email sent');
 
     }
