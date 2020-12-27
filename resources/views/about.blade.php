@@ -25,4 +25,16 @@
 
 <p>https://stackoverflow.com/questions/15012712/truncate-string-in-laravel-blade-templates</p>
 
+<p>https://stackoverflow.com/questions/4802190/how-do-i-format-date-in-jquery-datetimepicker</p>
+
+<p> https://stackoverflow.com/questions/51062030/updating-user-data-in-default-laravel-application/51086538</p>
+
+TO BE DONE :
+
+Setting an agenda
+setting Faq with specific layout
+Setting Admin controle Board
+
+Testing links
+Testing vulnerabilities
 @endsection

@@ -75,7 +75,7 @@ class ArticlesController extends Controller
 
     public function update($articleId)
     {
-        //no elequent methode for clarity /security reason
+        //no eloquent++ methode for clarity /security reason
         $this->validateArticle();
 
         $article = Article::findOrFail($articleId);

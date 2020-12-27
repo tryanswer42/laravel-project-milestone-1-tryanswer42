@@ -12,7 +12,7 @@
 
         </div>
 
-        <form method="post" action="/articles">
+        <form method="post" action="/user">
             @csrf
             @method('put')
 
@@ -51,6 +51,13 @@
             </dic>
         </form>
 
+        @if($errors)
+        @foreach($errors->all() as $error)
+        <div class="alert alert-danger" role="alert">
+            {{ $error }}
+        </div>
+        @endforeach
+        @endif
     </div>
 </div>
 

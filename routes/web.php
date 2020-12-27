@@ -23,6 +23,16 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+//User Show
+Route::get('/user', [\App\Http\Controllers\UsersController::class, 'show'])->name('user.show');
+
+//User Edit
+Route::get('/user/edit', [\App\Http\Controllers\UsersController::class, 'edit'])->name('user.edit');
+
+//User Update
+Route::put('/user', [\App\Http\Controllers\UsersController::class, 'update']);
+
+
 
 
 //Register validation

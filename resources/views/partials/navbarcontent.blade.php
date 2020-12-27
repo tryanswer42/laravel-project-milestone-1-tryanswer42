@@ -1,4 +1,4 @@
-<nav class="navbar  navbar-inverse navbar-expand shadow-sm">
+<nav class="navbar   navbar-expand ">
 
     <div class="container-fluid" id="header">
 
@@ -55,6 +55,7 @@
                         <a class="dropdown-item hoverable" href="#">Buy us a drink</a>
                     </div>
                 </li>
+                <li class="nav-item dropdown nav-item"><span> </span></li>
             </ul>
         </div>
 
