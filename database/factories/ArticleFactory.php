@@ -28,5 +28,7 @@ class ArticleFactory extends Factory
             'description'=>$this->faker->paragraphs,
             'viewable'=> true
         ];
+
+//        App\Models\Article::factory()->count(10)->create();
     }
 }

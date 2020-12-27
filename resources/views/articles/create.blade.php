@@ -51,7 +51,22 @@
                 <label for="img" class="label">Image Url</label>
 
                 <div class="control">
-                    <input type="text" class="input" id="img" value="{{ old('img') }}">
+                    <input type="url" class="input" id="img" value="{{ old('img') }}">
+                </div>
+            </div>
+
+            <div class=" field">
+                <label for="description" class="label">Tags</label>
+                <div class="control">
+                    <select name="tags[]" multiple id="">
+                        @foreach ($tags as $tag)
+                        <option value="{{$tag->id}}">{{$tag->name}}</option>
+                        @endforeach
+                    </select>
+                    @error ('description')
+                    <p class="help text-danger">{{$errors->first('description')}}</p>
+                    @enderror
+
                 </div>
             </div>
 
@@ -63,6 +78,8 @@
                     <input type="checkbox" name="viewable" value=1>
                 </div>
             </div>
+
+
 
             <div class="field is-grouped">
                 <div class="control">

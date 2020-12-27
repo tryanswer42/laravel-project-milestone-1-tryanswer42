@@ -20,4 +20,8 @@ class Article extends Model
        $partialString = Str::of($this->description)->limit(20);
        return $partialString;
     }
+
+    public function tags(){
+        return $this->belongsToMany(Tag::class)->withTimestamps();
+    }
 }

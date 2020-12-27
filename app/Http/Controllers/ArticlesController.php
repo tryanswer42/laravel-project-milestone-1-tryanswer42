@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Models\Article;
 
@@ -17,8 +18,13 @@ class ArticlesController extends Controller
 
 //        $article = App\Models\Article::all();
 //        $article = App\Models\Article::take(2);
+        if (request('tag')) {
+            $articles = Tag::where('name', request('tag'))->firstOrFail()->articles;
+        } else {
+            $articles = Article::latest()->get();
+        }
 
-        return view('articles.index', ['articles' => Article::latest()->get()]);
+        return view('articles.index', ['articles' => $articles]);
     }
 
 
@@ -39,15 +45,23 @@ class ArticlesController extends Controller
 
     public function create()
     {
-
-        return view('articles.create');
+        $tags = Tag::all();
+        return view('articles.create', ['tags' => $tags]);
     }
 
     public function store()
     {
- //need protected $fillable =['titel', 'description','img','viewable']; in Model for multi CU, /!\Security
-        Article::create($this->validateArticle());
-
+        //need protected $fillable =['titel', 'description','img','viewable']; in Model for multi CU, /!\Security
+        //Article::create($this->validateArticle());
+        $this->validateArticle();
+        $article = new Article(request([
+            'titel',
+            'description',
+            'viewable' ,
+            'img',
+            'tags']));
+        $article->save();
+        $article->tags()->attach(request('tags'));
 
         return redirect(route('articles.index'));
 
@@ -62,7 +76,7 @@ class ArticlesController extends Controller
     public function update($articleId)
     {
         //no elequent methode for clarity /security reason
-       $this->validateArticle();
+        $this->validateArticle();
 
         $article = Article::findOrFail($articleId);
         $article->titel = request('titel');
@@ -71,17 +85,19 @@ class ArticlesController extends Controller
         $article->save();
 
 
-        return redirect(route('articles.show'),  $articleId);
+        return redirect(route('articles.show'), $articleId);
 
     }
 
-    public function validateArticle(){
+    public function validateArticle()
+    {
 
         return request()->validate([
             'titel' => 'required',
-            'description' =>'required',
+            'description' => 'required',
             'viewable' => '',
-            'img' => ''
+            'img' => '',
+            'tags'=>'exists:tags,id'
         ]);
     }
 

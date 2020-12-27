@@ -13,6 +13,11 @@
             <img src="{{$article->img}}" alt="">
             <h2>{{$article->titel}}</h2>
             <p>{{$article->description}}</p>
+            <p >
+            @foreach ($article->tags as $tag)
+            <a class="tag" href="/articles?tag={{$tag->name}}">{{$tag->name}}</a>
+            @endforeach
+            </p>
             <a href="{{URL::to('articles/')}}" class="button button-alt">Back to News</a>
         </div>
 
