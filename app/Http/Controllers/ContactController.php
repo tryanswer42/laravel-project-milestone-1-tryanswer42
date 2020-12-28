@@ -47,7 +47,7 @@ class ContactController extends Controller
         ]));
         $contact->save();
 
-//        Mail::raw('Contact message to Petasi Ordo Recieved :  '.'\n\n\n'.request('message').'\n\n\nThe Message will be treated as soon as possible', function ($message) {
+//        Mail::raw('Contact message to Petasi Ordo Recieved :  '.request('message').'\nThe Message will be treated as soon as possible', function ($message) {
 //            $message->to(request('email'))
 //                ->from('Admin@PetasiOrdo.com')
 //                ->subject('Contact message to Petasi Ordo Recieved');

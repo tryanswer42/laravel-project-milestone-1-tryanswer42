@@ -29,6 +29,6 @@ public $contact;
      */
     public function build()
     {
-        return $this->from('Admin@PetasiOrdo.com')->markdown('emails.contactus')->with(['contact',$this->contact]);
+        return $this->from('Admin@PetasiOrdo.com')->subject('Contact message to Petasi Ordo Recieved')->markdown('emails.contactus')->with(['contact',$this->contact]);
     }
 }
