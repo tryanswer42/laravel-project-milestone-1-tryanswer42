@@ -84,7 +84,11 @@
                         </dic>
                         <br><br><br><br><br>
                     </form>
-
+                    @if (Route::has('password.request'))
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                        {{ __('Change Your Password?') }}
+                    </a>
+                    @endif
                 </div>
             </div>
         </div>

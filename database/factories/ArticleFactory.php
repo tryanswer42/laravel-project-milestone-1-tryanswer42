@@ -26,7 +26,7 @@ class ArticleFactory extends Factory
             'titel'=>$this->faker->sentence,
             'img'=>$this->faker->url,
             'description'=>$this->faker->paragraphs,
-            'viewable'=> true
+            'viewable'=> $this->faker->boolean,
         ];
 
 //        App\Models\Article::factory()->count(10)->create();

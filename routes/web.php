@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,13 +28,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 //User Show
-Route::get('/user', [\App\Http\Controllers\UsersController::class, 'show'])->name('user.show');
+Route::get('/user', [UsersController::class, 'show'])->name('user.show');
 
 //User Edit
-Route::get('/user/edit', [\App\Http\Controllers\UsersController::class, 'edit'])->name('user.edit');
+Route::get('/user/edit', [UsersController::class, 'edit'])->name('user.edit');
 
 //User Update
-Route::put('/user', [\App\Http\Controllers\UsersController::class, 'update'])->name('user.update');
+Route::put('/user', [UsersController::class, 'update'])->name('user.update');
 
 
 
@@ -40,15 +44,15 @@ Route::put('/user', [\App\Http\Controllers\UsersController::class, 'update'])->n
 Route::get('/agenda', 'AgendasController@show');
 
 //contact Page
-Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'show']);
-Route::post('/contact', [\App\Http\Controllers\ContactController::class, 'store']);
+Route::get('/contact', [ContactController::class, 'show']);
+Route::post('/contact', [ContactController::class, 'store']);
 
 
 //FAQ
 Route::get('/faq', 'FaqsController@show');
 
 //about
-Route::get('/about',[\App\Http\Controllers\AboutController::class, 'show']);
+Route::get('/about',[AboutController::class, 'show']);
 
 
 
@@ -62,20 +66,20 @@ Route::get('/admin/search', 'AdminsController@show');
 
 
 //Articles all
-Route::get('/articles', [\App\Http\Controllers\ArticlesController::class, 'index'])->name('articles.index');
+Route::get('/articles', [ArticlesController::class, 'index'])->name('articles.index');
 
 //Article Store
-Route::post('/articles', [\App\Http\Controllers\ArticlesController::class, 'store']);
+Route::post('/articles', [ArticlesController::class, 'store']);
 
 //Article create
-Route::get('/articles/create', [\App\Http\Controllers\ArticlesController::class, 'create']);
+Route::get('/articles/create', [ArticlesController::class, 'create']);
 
 //Article Show
-Route::get('/articles/{articleId}', [\App\Http\Controllers\ArticlesController::class, 'show'])->name('articles.show');
+Route::get('/articles/{articleId}', [ArticlesController::class, 'show'])->name('articles.show');
 
 //Article Edit
-Route::get('/articles/{articleId}/edit', [\App\Http\Controllers\ArticlesController::class, 'edit']);
+Route::get('/articles/{articleId}/edit', [ArticlesController::class, 'edit']);
 
 //Article Update
-Route::put('articles/{articleId}', [\App\Http\Controllers\ArticlesController::class, 'update']);
+Route::put('articles/{articleId}', [ArticlesController::class, 'update']);
 
