@@ -30,7 +30,7 @@ class UsersController extends Controller
     public function edit()
     {
 
-        return view('users.edit', ['article' => Auth::user()]);
+        return view('users.edit', ['user' => Auth::user()]);
     }
 
 

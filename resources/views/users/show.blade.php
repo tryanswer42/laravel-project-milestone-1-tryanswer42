@@ -9,9 +9,9 @@
                 <div class="card-body">
 
 
-                    <form method="post" action="/user">
+                    <form method="" action="/">
                         @csrf
-                        @method('put')
+
 
                         <br>
                         <div class="field">
@@ -53,7 +53,7 @@
 
                         <div class="field is-grouped"></div>
                         <dic class="control">
-                            <button class="button is-link" type="submit">Update</button>
+                            <a class= "button" href="{{ route('user.edit') }}">update?</a>
                         </dic>
                     </form>
 

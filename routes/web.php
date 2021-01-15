@@ -30,7 +30,7 @@ Route::get('/user', [\App\Http\Controllers\UsersController::class, 'show'])->nam
 Route::get('/user/edit', [\App\Http\Controllers\UsersController::class, 'edit'])->name('user.edit');
 
 //User Update
-Route::put('/user', [\App\Http\Controllers\UsersController::class, 'update']);
+Route::put('/user', [\App\Http\Controllers\UsersController::class, 'update'])->name('user.update');
 
 
 

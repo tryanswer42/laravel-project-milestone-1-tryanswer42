@@ -28,6 +28,7 @@
 <p>https://stackoverflow.com/questions/4802190/how-do-i-format-date-in-jquery-datetimepicker</p>
 
 <p> https://stackoverflow.com/questions/51062030/updating-user-data-in-default-laravel-application/51086538</p>
+<p>https://wordpress.stackexchange.com/questions/149730/redirect-to-a-page-after-a-few-seconds</p>
 
 <h1>TO BE DONE :</h1>
 

@@ -1,14 +1,15 @@
 
 @extends('layouts.master')
-@guest
-@section('banner')
 
+@section('banner')
+@guest
         <ul class="actions">
             <li><a href="{{URL::to('register')}}" class="button">Sign in</a></li>
         </ul>
+@endguest
 
 @endsection
-@endguest
+
 
 @section('content')
 
