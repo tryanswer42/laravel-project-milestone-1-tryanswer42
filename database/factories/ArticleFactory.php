@@ -22,10 +22,10 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return [
-            'datum'=> $this->faker->dateTime,
+            'datum'=> $this->faker->date(),
             'titel'=>$this->faker->sentence,
             'img'=>$this->faker->url,
-            'description'=>$this->faker->paragraphs,
+            'description'=>$this->faker->paragraph,
             'viewable'=> $this->faker->boolean,
         ];
 

@@ -18,11 +18,28 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        //make Admin
         DB::table('users')->insert([
             'name' => 'admin',
-            'email' => 'admin@gmail.com',
+            'email' => 'admin@admin.com',
             'password' => Hash::make('123456')]);
+        //make fake users
         User::factory()->count(10)->create();
+        //Make fake tags
         Tag::factory()->count(3)->create();
+        Article::factory()->count(5)->create();
+        DB::table('roles')->insert([
+            'id'=>'1',
+            'name' => 'admin'
+        ]);
+        DB::table('roles')->insert([
+            'id'=>'2',
+            'name' => 'moderator'
+        ]);
+        DB::table('role_user')->insert([
+            'user_id'=>'1',
+            'role_id' => '1'
+        ]);
+
     }
 }
