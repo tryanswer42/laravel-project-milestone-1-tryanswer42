@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ActivitiesController;
 use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UsersController;
@@ -41,7 +42,9 @@ Route::put('/user', [UsersController::class, 'update'])->name('user.update');
 
 
 //agenda Page
-Route::get('/agenda', 'AgendasController@show');
+//Route::get('/agenda', 'AgendasController@show');
+Route::resource('activities',ActivitiesController::class);
+
 
 //contact Page
 Route::get('/contact', [ContactController::class, 'show']);
