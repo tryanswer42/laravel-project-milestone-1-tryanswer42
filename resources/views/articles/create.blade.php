@@ -2,7 +2,7 @@
 
 
 @section('content')
-
+@if(Auth::user()->isAdmin())
 <div id="wrapper">
     <div id="three-column" class="container-fluid">
 
@@ -91,5 +91,8 @@
     </div>
 </div>
 
-
+@endif
+@if(Auth::user()->isAdmin()===false)
+Log in as Admin
+@endif
 @endsection

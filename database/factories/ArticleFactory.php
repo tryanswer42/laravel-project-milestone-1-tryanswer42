@@ -24,8 +24,8 @@ class ArticleFactory extends Factory
         return [
             'datum'=> $this->faker->date(),
             'titel'=>$this->faker->sentence,
-            'img'=>$this->faker->url,
-            'description'=>$this->faker->paragraph,
+            'img'=>'https://source.unsplash.com/random',
+            'description'=>$this->faker->paragraphs(5,true),
             'viewable'=> $this->faker->boolean,
         ];
 

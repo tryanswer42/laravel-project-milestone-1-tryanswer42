@@ -9,10 +9,10 @@
             <div class="col-lg-3 col-xs-12 links">
                 <h4 class="mt-lg-0 mt-sm-3">Links</h4>
                 <ul class="m-0 p-0">
-                    <li>- <a href="#">About us</a></li>
-                    <li>- <a href="#">Contact Us</a></li>
-                    <li>- <a href="#">Agenda</a></li>
-                    <li>- <a href="#">FAQ</a></li>
+                    <li>- <a href="{{URL::to('about')}}">About us</a></li>
+                    <li>- <a href="{{URL::to('contact')}}">Contact Us</a></li>
+                    <li>- <a href="{{URL::to('activities')}}">Agenda</a></li>
+                    <li>- <a href="{{URL::to('faqs')}}">FAQ</a></li>
                 </ul>
             </div>
             <div class="col-lg-4 col-xs-12 location">

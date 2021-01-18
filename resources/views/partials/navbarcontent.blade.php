@@ -5,16 +5,27 @@
 
         <div id="menu">
             <ul class="navbar-nav mx-auto">
+                @guest
+                @else
+                @if(Auth::user()->isAdmin())
+                <li class="{{ Request::is('admin*') ? 'active' : ''}}"><a href="{{URL::to('admin')}}" title="" class="hoverable nav-item">Admin</a></li>
+                @endif
+                @endguest
+
                 <li class="{{ Request::path() === '/' ? 'active' : ''}}"><a href="/" accesskey="1" title=""
                                                                             class="hoverable nav-item">Petasi Ordo</a>
                 </li>
-                <li class="{{ Request::is('articles*') ? 'active' : ''}}"><a href="{{URL::to('articles')}}" accesskey="2" title=""
+                <li class="{{ Request::is('articles*') ? 'active' : ''}}"><a href="{{URL::to('articles')}}"
+                                                                             accesskey="2" title=""
                                                                              class="hoverable nav-item">News</a></li>
-                <li class="{{ Request::is('agenda*') ? 'active' : ''}}"><a href="#" accesskey="3" title=""
+                <li class="{{ Request::is('agenda*') ? 'active' : ''}}"><a href="{{URL::to('activities')}}"
+                                                                           accesskey="3" title=""
                                                                            class="hoverable nav-item">Agenda</a></li>
-                <li class="{{ Request::is('about*') ? 'active' : ''}}"><a href="{{URL::to('about')}}" accesskey="4" title=""
+                <li class="{{ Request::is('about*') ? 'active' : ''}}"><a href="{{URL::to('about')}}" accesskey="4"
+                                                                          title=""
                                                                           class="hoverable nav-item">About Us</a></li>
-                <li class="{{ Request::is('contact*') ? 'active' : ''}}"><a href="{{URL::to('contact')}}" accesskey="5" title=""
+                <li class="{{ Request::is('contact*') ? 'active' : ''}}"><a href="{{URL::to('contact')}}" accesskey="5"
+                                                                            title=""
                                                                             class="hoverable nav-item">Contact Us</a>
                 </li>
 
@@ -25,7 +36,7 @@
                         @guest
                         SignIn/Register
                         @else
-                       Profil
+                        Profil
                         @endguest
 
                     </a>
@@ -52,7 +63,7 @@
                         @endguest
 
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item hoverable" href="#">Buy us a drink</a>
+                        <a class="dropdown-item hoverable" href="/donate">Buy us a drink</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown nav-item"><span> </span></li>

@@ -29,7 +29,7 @@
 
 <p> https://stackoverflow.com/questions/51062030/updating-user-data-in-default-laravel-application/51086538</p>
 <p>https://wordpress.stackexchange.com/questions/149730/redirect-to-a-page-after-a-few-seconds</p>
-
+<p>https://linuxhint.com/laravel-new-authroutes/</p>
 <h1>TO BE DONE :</h1>
 
 <p>Setting an agenda</p>

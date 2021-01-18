@@ -2,11 +2,12 @@
 
 
 @section('content')
+@if(Auth::user()->isAdmin())
 <div class="container">
     <div class="row justify-content-center text-dark">
         <div class="col-md-8  ">
             <div class="card">
-                <div class="card-header">{{ __('Update Profile') }}</div>
+                <div class="card-header">{{ __('Create Activity Event') }}</div>
                 <div class="card-body">
 
 
@@ -63,12 +64,9 @@
     });
 
 </script>
-<!--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>-->
-<!--<script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>-->
-<!--<script>-->
-<!--    $('.date').datepicker({-->
-<!--        autoclose: true,-->
-<!--        dateFormat: "yy-mm-dd"-->
-<!--    });-->
-<!--</script>-->
+
+@endif
+@if(Auth::user()->isAdmin()===false)
+Log in as Admin
+@endif
 @endsection

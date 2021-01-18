@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Activity;
+use App\Models\Category;
+use App\Models\Faq;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class ActivitiesController extends Controller
+class FaqController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +16,11 @@ class ActivitiesController extends Controller
      */
     public function index()
     {
-        $activities =Activity::all();
-        return view('activities.index',compact('activities'));
+        $categories = Category::all();
+
+        return view('faqs.index', ['categories' => $categories]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -25,7 +29,8 @@ class ActivitiesController extends Controller
      */
     public function create()
     {
-        return view('activities.create');
+        $categories =Category::all();
+        return view('faqs.create', ['categories' => $categories]);
     }
 
     /**
@@ -36,8 +41,12 @@ class ActivitiesController extends Controller
      */
     public function store(Request $request)
     {
-        Activity::create($request->all());
-        return redirect()->route('activities.index');
+        $faq=Faq::create($request->all());
+        DB::table('category_faq')->insert([
+            'category_id' => request('categories'),
+            'faq_id' => $faq->id ,
+        ]);
+    return redirect(route('faqs.index'));
     }
 
     /**
@@ -48,7 +57,9 @@ class ActivitiesController extends Controller
      */
     public function show($id)
     {
-        return view('activities.show', ['activity' => Activity::where('id', $id)->firstorFail()]);
+
+        return view('faqs.show', ['faqs' => Category::where('id',$id)->firstOrFail()->faqs]);
+
     }
 
     /**
@@ -59,7 +70,8 @@ class ActivitiesController extends Controller
      */
     public function edit($id)
     {
-        return view('activities.edit', ['activity' => Activity::findOrFail($id)]);
+        $categories =Category::all();
+        return view('faqs.edit',['faq'=> Faq::findOrFail($id),'categories'=> $categories]);
     }
 
     /**
@@ -71,8 +83,9 @@ class ActivitiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Activity::where('id',$id)->firstorFail()->update($request->all());
-        return redirect()->route('activities.index');
+        Faq::where('id',$id)->firstorFail()->update($request->all());
+        return redirect()->route('faqs.index');
+
     }
 
     /**
@@ -83,7 +96,7 @@ class ActivitiesController extends Controller
      */
     public function destroy($id)
     {
-        Activity::where('id',$id)->firstorFail()->delete();
-        return redirect()->route('activities.index');
+        Faq::where('id',$id)->firstorFail()->delete();
+        return redirect()->route('faqs.index');
     }
 }

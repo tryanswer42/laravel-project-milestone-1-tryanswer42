@@ -4,10 +4,12 @@
 @section('content')
 
 <div id="wrapper">
+
     <div id="three-column" class="container-fluid">
-
+        @if(Auth::user()->isAdmin())
+        <a href="{{URL::to('articles/'.$article->id.'/edit')}}" class="button button-alt "> Edit</a>
+        @endif
         <div class="title">
-
 
             <h6>Datum : {{$article->datum}}</h6>
             <img src="{{$article->img}}" alt="">
@@ -20,7 +22,13 @@
             </p>
             <a href="{{URL::to('articles/')}}" class="button button-alt">Back to News</a>
         </div>
-
+        @if(Auth::user()->isAdmin())
+        <form action="{{ route('articles.destroy', $article) }}" method="POST">
+            @method('DELETE')
+            @csrf
+            <button class="button button-alt">Delete activity</button>
+        </form>
+        @endif
     </div>
 </div>
 

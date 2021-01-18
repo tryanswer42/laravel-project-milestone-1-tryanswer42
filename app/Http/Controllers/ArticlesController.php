@@ -36,10 +36,9 @@ class ArticlesController extends Controller
 
     }
 
-
     public function show3()
     {
-        return view('home', ['articles' => Article::take(3)->latest()->get()]);
+        return view('welcome', ['articles' => Article::take(3)->latest()->get()]);
     }
 
 
@@ -88,6 +87,11 @@ class ArticlesController extends Controller
 
         return redirect(route('articles.show'), $articleId);
 
+    }
+    public function destroy($articleId)
+    {
+        Article::where('id',$articleId)->firstorFail()->delete();
+        return redirect()->route('articles.index');
     }
 
     public function validateArticle()
