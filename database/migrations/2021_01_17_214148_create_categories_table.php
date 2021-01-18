@@ -35,6 +35,8 @@ class CreateCategoriesTable extends Migration
                 ->on('faqs')->onDelete('cascade');
         });
 
+        $seeder = new \Database\Seeders\DatabaseSeeder();
+        $seeder->run();
 
     }
 
